@@ -1,5 +1,7 @@
 import NextAuth from 'next-auth'
 import AzureProvider from 'next-auth/providers/azure-ad'
+import { MongoDBAdapter } from '@next-auth/mongodb-adapter'
+import clientPromise from '../../../Lib/mongodb'
 
 export default NextAuth({
     providers: [

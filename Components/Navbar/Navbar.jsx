@@ -11,7 +11,7 @@ export default function Navbar() {
     const [open,setOpen] = useState(false);
 
     return(
-        <nav>
+        <nav className="z-2">
             <div className="flex flex-row m-4 justify-between md:hidden">
             <span className="w-[200px]">
                 <Image src={Logo} layout="responsive" className="md:hidden"></Image> 
@@ -25,7 +25,7 @@ export default function Navbar() {
                 <NavBarLinks/>
             </ul> : '' }
 
-        <ul className="hidden md:inline px-2 md:w-[230px] md:h-[100%] md:fixed md:border-r-2 shadow-xl">
+        <ul className="hidden md:inline-block px-2 md:w-[230px] md:h-[100%] md:fixed top-0 left-0 md:border-r-2 shadow-xl">
             <li className="max-w-[200px] p-4 md:border-b-2 pb-5">
                 <Image src={Logo} layout="responsive"></Image>
             </li>

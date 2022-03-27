@@ -17,8 +17,8 @@ export default function NavBarLinks(){
     <li className="md:border-b-2 text-white text-opacity-80 md:text-black"><Link href="/calender"><a className="flex flex-row p-5 md:hover:text-ecreo transition ease-out delay-100 md:hover:scale-110">
         <CalendarIcon className="w-[24px] mr-2"/>Kalender
     </a></Link></li>
-    <li className="mt-7 mr-7"><PrimaryButton  btnText="Login" href="/login"/></li>
-    <li className="mr-7"><SecondaryButton  btnText="Opret Bruger" href="/signup"/></li>
+    <li className="mt-7 mr-7 ml-7"><PrimaryButton  btnText="Login" href="/login"/></li>
+    <li className="mr-7 ml-7 pb-7 md:pb-0"><SecondaryButton  btnText="Opret Bruger" href="/signup"/></li>
     </>
         )
 }

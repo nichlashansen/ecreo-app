@@ -1,29 +1,36 @@
 import Image from "next/image"
 import Logo from '../../public/images/logo.webp'
-import { HomeIcon,CollectionIcon,EmojiSadIcon,CalendarIcon } from '@heroicons/react/outline'
+import { MenuIcon, XIcon } from "@heroicons/react/solid"
 import { HeartIcon } from '@heroicons/react/solid'
 import Link from "next/link"
+import NavBarLinks from "./NavBarLinks"
+import { useState } from 'react'
 
-export default function Navbar(){
+
+export default function Navbar() {
+    const [open,setOpen] = useState(false);
+
     return(
         <nav>
-        <ul className="p-3 md:w-[230px] md:h-[100%] md:fixed border-r-1 shadow-xl">
+            <div className="flex flex-row m-4 justify-between md:hidden">
+            <span className="w-[200px]">
+                <Image src={Logo} layout="responsive" className="md:hidden"></Image> 
+            </span>
+            {!open ?
+            <MenuIcon  className="w-[24px] cursor-pointer" onClick={() => setOpen(!open)}/> :
+            <XIcon  className="w-[24px] cursor-pointer" onClick={() => setOpen(!open)}/> }
+            </div>
+            {open ?
+            <ul className="bg-ecreo bg-opacity-90 z-10 md:hidden">
+                <NavBarLinks/>
+            </ul> : '' }
+
+        <ul className="hidden md:inline px-2 md:w-[230px] md:h-[100%] md:fixed md:border-r-2 shadow-xl">
             <li className="max-w-[200px] p-4 md:border-b-2 pb-5">
                 <Image src={Logo} layout="responsive"></Image>
             </li>
-            <li className="md:border-b-2"><Link href="/"><a className="flex flex-row p-5 hover:text-ecreo transition ease-out delay-100 hover:scale-110">
-                <HomeIcon className="w-[24px] mr-2"/>Hjem
-            </a></Link></li>
-            <li className="md:border-b-2"><Link href="/dashboard"><a className="flex flex-row p-5 hover:text-ecreo transition ease-out delay-100 hover:scale-110">
-                <CollectionIcon className="w-[24px] mr-2"/>Dashboard
-            </a></Link></li>
-            <li className="md:border-b-2"><Link href="/absense"><a className="flex flex-row p-5 hover:text-ecreo transition ease-out delay-100 hover:scale-110">
-                <EmojiSadIcon className="w-[24px] mr-2"/>Fravær
-            </a></Link></li>
-            <li className="md:border-b-2"><Link href="/calender"><a className="flex flex-row p-5 hover:text-ecreo transition ease-out delay-100 hover:scale-110">
-                <CalendarIcon className="w-[24px] mr-2"/>Kalender
-            </a></Link></li>
-            <footer>
+            <NavBarLinks />
+            <footer className="hidden md:inline">
             <p className="text-xs text-center mt-10">Copyright 2022 Datamatikerne</p>
             <p className="text-xs text-center">Made with <HeartIcon className="w-[24px] text-ecreo inline hover:scale-110"/> in Odense</p>
             </footer>

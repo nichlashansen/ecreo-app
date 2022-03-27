@@ -5,6 +5,8 @@ import { HeartIcon } from '@heroicons/react/solid'
 import Link from "next/link"
 import NavBarLinks from "./NavBarLinks"
 import { useState } from 'react'
+import { useSession } from "next-auth/react"
+
 
 
 export default function Navbar() {
@@ -21,7 +23,7 @@ export default function Navbar() {
             <XIcon  className="w-[24px] cursor-pointer" onClick={() => setOpen(!open)}/> }
             </div>
             {open ?
-            <ul className="bg-ecreo bg-opacity-90 z-10 md:hidden">
+            <ul className="bg-ecreo bg-opacity-90 z-10 md:hidden pb-5">
                 <NavBarLinks/>
             </ul> : '' }
 

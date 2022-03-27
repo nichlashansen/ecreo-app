@@ -17,6 +17,6 @@ export default NextAuth({
         strategy: "jwt",
     },
     jwt: {
-        secret: 'IB12Y01nimLZdOwOimdj9wNEO9djhtiGIBdVyF+YhW8=',
+        secret: process.env.JWT_SECRET,
     }
 })

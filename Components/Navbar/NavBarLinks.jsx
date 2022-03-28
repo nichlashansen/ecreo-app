@@ -6,11 +6,13 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function NavBarLinks(){
     const {data: session, status} = useSession();
+    const [openModal,setOpenModal] = useState(false);
     const loginClick = ()=> {
         signIn('azure-ad');
     }
     const logoutClick = () => {signOut()};
-    return(<>
+    return(
+    <>
     {status === 'authenticated' ? 
         <span>
             <li className="md:border-b-2 text-white text-opacity-80 md:text-black"><Link href="/"><a className="flex flex-row p-5 md:hover:text-ecreo transition ease-out delay-100 md:hover:scale-110">

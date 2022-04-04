@@ -21,7 +21,7 @@ export default function AbsenseModal({show, onClose}){
         <div className="bg-white w-[600px] h-[700px] rounded-xl p-4" onClick={(e) => e.stopPropagation()}>
             <XIcon onClick={() => handleClose()} className="w-6 mt-2 ml-auto cursor-pointer"/>
             <h1 className="text-4xl text-center mt-3">Fraværs Registrering</h1>
-            <AbsenseForm />
+            <AbsenseForm close={()=>handleClose()}/>
         </div>
 
     </div>

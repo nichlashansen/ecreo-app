@@ -1,8 +1,10 @@
 import Link from "next/link"
+import { useState } from "react"
 import { HomeIcon,CollectionIcon,EmojiSadIcon,CalendarIcon } from '@heroicons/react/outline'
 import PrimaryButton from "../Button/PrimaryButton"
 import SecondaryButton from "../Button/SecondaryButton"
 import { useSession, signIn, signOut } from "next-auth/react"
+import AbsenseModal from "../AbsenseModal"
 
 export default function NavBarLinks(){
     const {data: session, status} = useSession();
@@ -21,9 +23,10 @@ export default function NavBarLinks(){
                 <li className="md:border-b-2 text-white text-opacity-80 md:text-black"><Link href="/dashboard"><a className="flex flex-row p-5 md:hover:text-ecreo transition ease-out delay-100 md:hover:scale-110">
             <CollectionIcon className="w-[24px] mr-2"/>Dashboard
                 </a></Link></li>
-                <li className="md:border-b-2 text-white text-opacity-80 md:text-black"><Link href="/absense"><a className="flex flex-row p-5 md:hover:text-ecreo transition ease-out delay-100 md:hover:scale-110">
+                <li className="md:border-b-2 text-white text-opacity-80 md:text-black"><span onClick={() => setOpenModal(true)} className="flex flex-row p-5 md:hover:text-ecreo transition ease-out delay-100 md:hover:scale-110 cursor-pointer">
             <EmojiSadIcon className="w-[24px] mr-2"/>Fravær
-                </a></Link></li>
+                </span></li> 
+                <AbsenseModal onClose={() => setOpenModal(false)} show={openModal}/>
                 <li className="md:border-b-2 text-white text-opacity-80 md:text-black"><Link href="/calender"><a className="flex flex-row p-5 md:hover:text-ecreo transition ease-out delay-100 md:hover:scale-110">
             <CalendarIcon className="w-[24px] mr-2"/>Kalender
                 </a></Link></li>

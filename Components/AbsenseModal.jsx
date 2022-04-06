@@ -11,7 +11,6 @@ export default function AbsenseModal({show, onClose}){
     },[]);
 
     const handleClose = () =>{
-        //if using <a> tag in modal, remember to prevent default
         onClose();
     }
 

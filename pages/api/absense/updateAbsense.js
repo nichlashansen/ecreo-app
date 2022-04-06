@@ -5,7 +5,7 @@ export default function handler(req, res){
    const body = req.body
    console.log(body);
 
-   return res.status(200);
+   return res.status(200).json(body)
    //check if post
    //update absense with values from form 
 }

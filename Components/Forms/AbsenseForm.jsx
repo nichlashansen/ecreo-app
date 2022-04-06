@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
 
 export default function AbsenseForm(props){
-    const [todaysDate] = new Date().toISOString("en-US").split('T')[0];
+    const [todaysDate] = new Date().toISOString("en-US").split('T');
     const [isCheckbox,setIsCheckbox] = useState(true);
     const [absenseReason,setAbsenseReason] = useState('online')
     const [absenseDate,setAbsenseDate] = useState(todaysDate)
-    const [absenseStartTime,setAbsenseStartTime] = useState('')
-    const [absenseEndTime,setAbsenseEndTime] = useState('')
+    const [absenseStartTime,setAbsenseStartTime] = useState('00:00')
+    const [absenseEndTime,setAbsenseEndTime] = useState('23:59')
     const [absenseComment,setAbsenseComment] = useState('')
 
     const handleSubmit= (e) => {
@@ -17,7 +17,6 @@ export default function AbsenseForm(props){
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(absenseRegistration)
         }).then(()=>{
-            console.log('success')
             props.close();
         })
     }
@@ -27,8 +26,8 @@ export default function AbsenseForm(props){
             <label className="block text-gray-700 text-md font-bold mb-2" htmlFor="status">
                 Vælg Fraværsårsag
             </label>
-            <select value={absenseReason} onChange={(e) => setAbsenseReason(e.target.value)} className="shadow-md appearance-none border rounded w-50 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="status">
-                <option value="online" selected >Jeg er Online</option>
+            <select defaultValue={absenseReason} onChange={(e) => setAbsenseReason(e.target.value)} className="shadow-md appearance-none border rounded w-50 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="status">
+                <option value="online" >Jeg er Online</option>
                 <option value="sick">Jeg er Syg</option>
             </select>
             

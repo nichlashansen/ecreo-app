@@ -10,7 +10,6 @@ export default async function handler(req,res){
 
     //get users from db and return json of all users
     const allUsers = await User.find();
-    console.log(allUsers);
 
     return res.status(201).json(allUsers);
 }

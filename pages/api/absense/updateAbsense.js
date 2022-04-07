@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { useRouter } from "next/router";
-import AbsenseModel from "../../../Lib/absenseModel";
+import AbsenseModel from "../../../Lib/Models/absenseModel";
 import { getSession } from "next-auth/react";
 
 export default async function handler(req, res){

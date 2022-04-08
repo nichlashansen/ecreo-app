@@ -18,7 +18,7 @@ export default function AbsenseModal({show, onClose}){
     //content for the model, somewhere to close if
     <div className="absolute top-0 left-0 w-screen h-screen justify-center items-center align-middle bg-slate-700/60 flex" onClick={() => handleClose()}>
         <div className="bg-white w-[600px] h-[700px] rounded-xl p-4" onClick={(e) => e.stopPropagation()}>
-            <XIcon onClick={() => handleClose()} className="w-6 mt-2 ml-auto cursor-pointer"/>
+            <XIcon onClick={() => handleClose()} className="w-6 mt-2 ml-auto cursor-pointer" data-testid="closeBtn"/>
             <h1 className="text-4xl text-center mt-3">Fraværs Registrering</h1>
             <AbsenseForm close={()=>handleClose()}/>
         </div>

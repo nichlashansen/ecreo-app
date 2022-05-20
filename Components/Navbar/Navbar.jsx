@@ -16,7 +16,7 @@ export default function Navbar() {
         <nav className="z-2">
             <div className="flex flex-row m-4 justify-between md:hidden">
             <span className="w-[200px]">
-                <Image src={Logo} layout="responsive" className="md:hidden"></Image> 
+                <Image src={Logo} width='200px' height='100px' layout="responsive" className="md:hidden" alt="Ecreo Logo"></Image> 
             </span>
             {!open ?
             <MenuIcon  className="w-[24px] cursor-pointer" onClick={() => setOpen(!open)}/> :

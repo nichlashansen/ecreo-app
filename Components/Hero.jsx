@@ -14,7 +14,7 @@ return(
                 <PrimaryButton btnText="Login med Microsoft" href="/" />  }
         </div>
         <div>
-            <Image src={image} ></Image>
+            <Image src={image} layout='fill' ></Image>
 
         </div>
     </section>

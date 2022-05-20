@@ -10,7 +10,13 @@ export default async function handler(req,res){
 
     const filter = {id: req.query.id};
     //get users from db and return json of all users
-    const singleUser = await User.find(filter);
-
+    try{
+    const singleUser = await User.find(filter).orFail(()=>{
+       return res.status(404).json(`user with id: ${filter} not found`)
+        });
+    }
+    catch (error){
+    return res.status(500).json(error);
+    }
     return res.status(201).json(singleUser);
-}
+};
